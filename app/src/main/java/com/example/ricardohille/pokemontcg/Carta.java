@@ -68,4 +68,9 @@ public class Carta {
     public String getSubTipoCarta(){
         return subTipoCarta;
     }
+
+    @Override
+    public String toString() {
+        return "Carta: "+getNome()+" Coleção: "+getColecao()+" Tipo:"+getTipo();
+    }
 }

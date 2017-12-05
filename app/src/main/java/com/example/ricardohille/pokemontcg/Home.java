@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Home extends AppCompatActivity {
 
     private TextView mTextMessage;
@@ -36,9 +39,18 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        List<Carta> cartas = popularListaCartas();
+    }
+
+    private ArrayList<Carta> popularListaCartas(){
+        List<Carta> listaCartas = new ArrayList<Carta>();
+
+
+
+        return listaCartas;
     }
 
 }
