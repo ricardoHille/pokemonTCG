@@ -5,11 +5,16 @@ package com.example.ricardohille.pokemontcg;
  */
 
 public class Troca {
+    private int id;
     private Usuario usuarioFornecedor;
     private Usuario usuarioRecebedor;
     private String dataTroca;
     private Carta cartaFornecida;
     private Carta cartaRecebida;
+
+    public void setId(int id){
+        this.id = id;
+    }
 
     public void setUsuarioFornecedor(Usuario usuarioFornecedor){
         this.usuarioFornecedor = usuarioFornecedor;

@@ -4,11 +4,21 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.JsonReader;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import servico.ListaObjetosServico;
 
 public class Home extends AppCompatActivity {
 
@@ -42,15 +52,11 @@ public class Home extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        List<Carta> cartas = popularListaCartas();
+        ListaObjetosServico listaObjetosServico = new ListaObjetosServico();
+
+        List<Carta> cartas = listaObjetosServico.listaCartas;
+        ListView listaDeCartas = (ListView) findViewById(R.id.listagem);
+        ArrayAdapter<Carta> adapter = new ArrayAdapter<Carta>(this, android.R.layout.simple_list_item_1,cartas);
+        listaDeCartas.setAdapter(adapter);
     }
-
-    private ArrayList<Carta> popularListaCartas(){
-        List<Carta> listaCartas = new ArrayList<Carta>();
-
-
-
-        return listaCartas;
-    }
-
 }
