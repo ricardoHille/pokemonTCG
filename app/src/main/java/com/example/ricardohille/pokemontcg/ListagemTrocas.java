@@ -5,9 +5,9 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import java.util.List;
+import com.example.ricardohille.pokemontcg.servico.ListaObjetosServico;
 
-import servico.ListaObjetosServico;
+import java.util.List;
 
 /**
  * Created by Ricardo.Hille on 06/12/2017.

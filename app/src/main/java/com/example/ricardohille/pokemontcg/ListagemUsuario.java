@@ -11,10 +11,9 @@ import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.ricardohille.pokemontcg.servico.ListaObjetosServico;
+
 import java.util.List;
-
-import servico.ListaObjetosServico;
-
 /**
  * Created by Ricardo.Hille on 06/12/2017.
  */
