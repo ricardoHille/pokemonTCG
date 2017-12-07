@@ -1,6 +1,7 @@
 {  
    "trocas":[  
       {  
+         "id":1,
          "usuarioFornecedor":1,
          "usuarioRecebedor":2,
          "dataTroca":"05/12/2017",
