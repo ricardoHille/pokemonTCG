@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "17704935416",
+    "firebase_url": "https://pokemontcg-a2b96.firebaseio.com",
+    "project_id": "pokemontcg-a2b96",
+    "storage_bucket": "pokemontcg-a2b96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17704935416:android:4d6c35c84c9dcbf6",
+        "android_client_info": {
+          "package_name": "com.example.ricardohille.pokemontcg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17704935416-l99cnmoaoikmsab328agmnljgvf2frde.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ricardohille.pokemontcg",
+            "certificate_hash": "07b302eead8010e67ebdd8896a3a4413b4a11699"
+          }
+        },
+        {
+          "client_id": "17704935416-uvf8j68c477914rguoi12ibfr37497c4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgyWOo4eRd2G6UnWlhWAsYdCvpIOuqtxU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17704935416-uvf8j68c477914rguoi12ibfr37497c4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
