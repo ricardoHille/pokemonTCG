@@ -1,5 +1,6 @@
 package com.example.ricardohille.pokemontcg;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -48,7 +49,7 @@ public class Home extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        CriarListaObjetosServico servicoLista = new CriarListaObjetosServico();
+        final CriarListaObjetosServico servicoLista = new CriarListaObjetosServico();
 
         List<Carta> cartas = servicoLista.cartas;
         ListView listaDeCartas = (ListView) findViewById(R.id.listagem);
@@ -58,7 +59,19 @@ public class Home extends AppCompatActivity {
         listaDeCartas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                int idCarta = (int) adapterView.getAdapter().getItemId(i);
 
+                Carta carta = servicoLista.cartas.get(idCarta);
+
+                Intent intent = new Intent(Home.this, InfoCarta.class);
+                Bundle bundle = new Bundle();
+
+                String urlImagem = carta.getImgURL();
+
+                bundle.putString("imgURL", urlImagem);
+                intent.putExtras(bundle);
+
+                startActivity(intent);
             }
         });
     }
