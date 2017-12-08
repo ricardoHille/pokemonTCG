@@ -5,8 +5,6 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.ricardohille.pokemontcg.servico.ListaObjetosServico;
-
 import java.util.List;
 
 /**
@@ -21,7 +19,7 @@ public class ListagemTrocas extends AppCompatActivity {
 
         //ListaObjetosServico listaObjetosServico = new ListaObjetosServico();
 
-        List<Troca> listaTrocas = ListaObjetosServico.listaTrocas;
+        //List<Troca> listaTrocas = ListaObjetosServico.listaTrocas;
         //ListView listaDeTrocas = (ListView) findViewById(R.layout.listagemTroca);
         //ArrayAdapter<Usuario> adapter = new ArrayAdapter<Usuario>(this, android.R.layout.simple_list_item_1, listaTrocas);
         //listaDeTrocas.setAdapter(adapter);

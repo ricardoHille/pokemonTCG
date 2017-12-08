@@ -9,6 +9,12 @@ public class CartaUsuario {
     private Usuario usuario;
     private Carta carta;
 
+    public CartaUsuario(int id, Usuario usuario, Carta carta){
+        this.id = id;
+        this.usuario = usuario;
+        this.carta = carta;
+    }
+
     public void setId(int id){
         this.id = id;
     }

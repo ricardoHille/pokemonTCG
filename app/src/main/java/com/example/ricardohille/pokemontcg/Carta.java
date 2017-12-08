@@ -13,6 +13,16 @@ public class Carta {
     private String tipoCarta;
     private String subTipoCarta;
 
+    public Carta(int id, String nome, String colecao, String tipo, String imgUrl, String tipoCarta, String subTipoCarta){
+        this.id = id;
+        this.nome = nome;
+        this.colecao = colecao;
+        this.tipo = tipo;
+        this.imgUrl = imgUrl;
+        this.tipoCarta = tipoCarta;
+        this.subTipoCarta = subTipoCarta;
+    }
+
     public void setId(int id){
         this.id = id;
     }

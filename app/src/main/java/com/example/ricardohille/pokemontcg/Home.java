@@ -4,19 +4,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.util.JsonReader;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.ricardohille.pokemontcg.servico.ListaObjetosServico;
+import com.example.ricardohille.pokemontcg.DAO.ConfiguracaoFireBase;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,17 +46,34 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        FirebaseApp.initializeApp(Home.this);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
-
-        ListaObjetosServico listaObjetosServico = new ListaObjetosServico();
-
-        List<Carta> cartas = listaObjetosServico.listaCartas;
+        List<Carta> cartas = popularLista();
         ListView listaDeCartas = (ListView) findViewById(R.id.listagem);
         ArrayAdapter<Carta> adapter = new ArrayAdapter<Carta>(this, android.R.layout.simple_list_item_1,cartas);
         listaDeCartas.setAdapter(adapter);
+    }
+
+    private List<Carta> popularLista(){
+        final List<Carta> listaCartas = new ArrayList<Carta>();
+        ConfiguracaoFireBase.getFirebase().getRef().child("cartas").child("cartas").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
+                    Carta carta = objSnapshot.getValue(Carta.class);
+                    listaCartas.add(carta);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        return listaCartas;
     }
 }
