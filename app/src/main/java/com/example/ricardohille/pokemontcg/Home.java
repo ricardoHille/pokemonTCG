@@ -5,17 +5,14 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.ricardohille.pokemontcg.DAO.ConfiguracaoFireBase;
+import com.example.ricardohille.pokemontcg.Serviço.CriarListaObjetosServico;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Home extends AppCompatActivity {
@@ -51,29 +48,18 @@ public class Home extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        List<Carta> cartas = popularLista();
+        CriarListaObjetosServico servicoLista = new CriarListaObjetosServico();
+
+        List<Carta> cartas = servicoLista.cartas;
         ListView listaDeCartas = (ListView) findViewById(R.id.listagem);
         ArrayAdapter<Carta> adapter = new ArrayAdapter<Carta>(this, android.R.layout.simple_list_item_1,cartas);
         listaDeCartas.setAdapter(adapter);
-    }
 
-    private List<Carta> popularLista(){
-        final List<Carta> listaCartas = new ArrayList<Carta>();
-        ConfiguracaoFireBase.getFirebase().getRef().child("cartas").child("cartas").addValueEventListener(new ValueEventListener() {
+        listaDeCartas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
-                    Carta carta = objSnapshot.getValue(Carta.class);
-                    listaCartas.add(carta);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
             }
         });
-
-        return listaCartas;
     }
 }
